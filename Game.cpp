@@ -7,7 +7,7 @@
 
 Game::~Game() {
  //   cout << "In Game D'tor" << endl;
-    //delete this->board;
+
 }
 
 Game::Game() {
