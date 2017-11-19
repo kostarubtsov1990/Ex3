@@ -13,19 +13,8 @@ int main() {
     GameMenu* menu = new ReversiGameMenu ();
     menu->Start();
     GameFlow* flow = menu->GetGameFlow();
-    /*GameLogic* logic = new DefaultLogic();
-    Game* game = new ReversiGame(logic);
-
-    Board* board = new Board();
-    game->SetBoard(board);
-
-    GameFlow* flow = new MultiPlayerFlow(game);*/
-    //start game
     flow->Run();
 
-//    cout << "In main, before first delete" << endl;
-    /*delete logic;
-    delete game;*/
     delete menu;
 
     return 0;

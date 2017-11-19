@@ -21,12 +21,7 @@ public:
     ~ReversiGame();
     ReversiGame(GameLogic* logic);
     GameLogic* getGameLogic() const;
-    int GetXcounter() const;
-    int GetYcounter() const;
 
-private:
-    int xCounter;
-    int yCounter;
 };
 
 #endif //EX2_REVERSIGAME_H

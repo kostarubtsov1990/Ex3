@@ -11,19 +11,10 @@ ReversiGame::~ReversiGame() {
     delete logic;
 }
 
-ReversiGame::ReversiGame(GameLogic* logic): Game::Game(logic),
-                                                  xCounter(INITIAL_X_AND_O_COUNTER),
-                                                  yCounter(INITIAL_X_AND_O_COUNTER) {}
+ReversiGame::ReversiGame(GameLogic* logic): Game::Game(logic) {}
 
 GameLogic* ReversiGame::getGameLogic() const {
-    return this->getGameLogic();
+    return this->logic;
 }
 
-int ReversiGame::GetXcounter() const {
-    return this->xCounter;
-}
-
-int ReversiGame::GetYcounter() const {
-    return this->yCounter;
-}
 
