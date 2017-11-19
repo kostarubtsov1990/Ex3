@@ -46,7 +46,7 @@ void MultiPlayerFlow::RunCurrentTurnOfTheGame(Game* game, playerIdentifier id,
     //chosen cell of current player
     Cell chosenCell = this->InputHandler();
     //if cellisnt validask again the playerto choose cell from the possiblelist
-    while(!logic->IsLocationValid(chosenCell)) {
+    while(!logic->IsLocationValid(chosenCell)) {//
         PrintHandler(id, logic->GetMoves());
         chosenCell = InputHandler();
     }
