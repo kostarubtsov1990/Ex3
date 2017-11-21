@@ -55,7 +55,8 @@ private:
      * current direction, if the board in location (row,col) isn't empty and isnt
      * 'X',change the indexes to the opposite direction of the currentdirection
      */
-    void UpdateMovesVector(Board* board, boardContent xOrOPlayer, const vector<direction> &emptyCells, const Cell &cell);
+    void UpdateMovesVector(Board* board, boardContent xOrOPlayer,
+                           const vector<direction> &emptyCells, const Cell &cell);
     vector<Cell> xsLocations;
     vector<Cell> osLocations;
 };

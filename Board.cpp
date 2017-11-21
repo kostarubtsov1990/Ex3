@@ -7,10 +7,22 @@
 
 Board::~Board() {
 //    cout << "Inside Board's D'tor" << endl;
-    for (int i = 0; i < NUM_OF_ROWS; i++) {
+    /*for (int i = 0; i < NUM_OF_ROWS; i++) {
         delete this->content[i];
     }
-    delete content;
+    delete content;*/
+}
+
+Board::Board(const Board &other) {
+    this->content = new boardContent*[NUM_OF_ROWS];
+    for(int i = 0; i < NUM_OF_ROWS; ++i)
+        this->content[i] = new boardContent[NUM_OF_COLS];
+    //Copy the data from the other object.
+    for (int i = 0; i < NUM_OF_ROWS; ++i) {
+        for (int j = 0; j < NUM_OF_COLS; ++j) {
+            this->content[i][j] = other.getBoardContent()[i][j];
+        }
+    }
 }
 
 //C'tor
