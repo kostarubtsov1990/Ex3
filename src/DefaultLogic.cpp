@@ -3,7 +3,7 @@
  * Id: 200958296
  */
 
-#include "DefaultLogic.h"
+#include "../include/DefaultLogic.h"
 
 DefaultLogic::~DefaultLogic() {
 //    cout << "In DefaultLogic D'tor" << endl;

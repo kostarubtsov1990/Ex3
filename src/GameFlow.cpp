@@ -3,7 +3,7 @@
  * Id: 200958296
  */
 
-#include "GameFlow.h"
+#include "../include/GameFlow.h"
 
 GameFlow::~GameFlow() {}
 

@@ -3,9 +3,9 @@
  * Id: 200958296
  */
 
-#include "MultiPlayerFlow.h"
-#include "GameMenu.h"
-#include "ReversiGameMenu.h"
+#include "include/MultiPlayerFlow.h"
+#include "include/GameMenu.h"
+#include "include/ReversiGameMenu.h"
 
 int main() {
     //create the default logic and reversi game with the default logic

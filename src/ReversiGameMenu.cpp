@@ -3,7 +3,7 @@
 //
 
 #include <cstdio>
-#include "ReversiGameMenu.h"
+#include "../include/ReversiGameMenu.h"
 
 
 void ReversiGameMenu::Start() {

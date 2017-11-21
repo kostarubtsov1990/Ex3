@@ -3,7 +3,7 @@
  * Id: 200958296
  */
 
-#include "GameLogic.h"
+#include "../include/GameLogic.h"
 
 GameLogic::GameLogic() {
  //   this->moves = new vector<Cell>();

@@ -4,8 +4,8 @@
  */
 
 #include <cstdlib>
-#include "MultiPlayerFlow.h"
-#include "ReversiGame.h"
+#include "../include/MultiPlayerFlow.h"
+#include "../include/ReversiGame.h"
 
 /*
 MultiPlayerFlow::MultiPlayerFlow() {

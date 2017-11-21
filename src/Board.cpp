@@ -3,7 +3,7 @@
  * Id: 200958296
  */
 
-#include "Board.h"
+#include "../include/Board.h"
 
 Board::~Board() {
 //    cout << "Inside Board's D'tor" << endl;

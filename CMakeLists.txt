@@ -3,5 +3,7 @@ project(Ex3)
 
 set(CMAKE_CXX_STANDARD 98)
 
-set(SOURCE_FILES main.cpp Board.cpp Board.h ReversiGame.cpp ReversiGame.h Game.cpp Game.h GameLogic.cpp GameLogic.h Cell.cpp Cell.h GameFlow.cpp GameFlow.h MultiPlayerFlow.cpp MultiPlayerFlow.h DefaultLogic.cpp DefaultLogic.h SinglePlayerFlow.cpp SinglePlayerFlow.h GameMenu.cpp GameMenu.h ReversiGameMenu.cpp ReversiGameMenu.h)
+set(SOURCE_FILES main.cpp src/Board.cpp include/Board.h src/ReversiGame.cpp include/ReversiGame.h src/Game.cpp include/Game.h src/GameLogic.cpp include/GameLogic.h src/Cell.cpp include/Cell.h src/GameFlow.cpp include/GameFlow.h src/MultiPlayerFlow.cpp include/MultiPlayerFlow.h src/DefaultLogic.cpp include/DefaultLogic.h src/SinglePlayerFlow.cpp include/SinglePlayerFlow.h src/GameMenu.cpp include/GameMenu.h src/ReversiGameMenu.cpp include/ReversiGameMenu.h test/test_DefaultLogic.cpp test/gtest_main.cpp)
 add_executable(Ex3 ${SOURCE_FILES})
+
+

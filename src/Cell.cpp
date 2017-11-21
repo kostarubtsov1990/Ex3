@@ -3,7 +3,7 @@
  * Id: 200958296
  */
 
-#include "Cell.h"
+#include "../include/Cell.h"
 
 Cell::Cell(): xCord(0),yCord(0) {}
 

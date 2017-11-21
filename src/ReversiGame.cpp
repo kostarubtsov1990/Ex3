@@ -3,7 +3,7 @@
  * Id: 200958296
  */
 
-#include "ReversiGame.h"
+#include "../include/ReversiGame.h"
 
 ReversiGame::~ReversiGame() {
 //    cout << "In ReversiGame D'tor" << endl;

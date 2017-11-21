@@ -3,7 +3,7 @@
  * Id: 200958296
  */
 
-#include "Game.h"
+#include "../include/Game.h"
 
 Game::~Game() {
  //   cout << "In Game D'tor" << endl;
