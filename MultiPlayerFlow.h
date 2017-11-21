@@ -25,7 +25,7 @@ public:
 
 private:
     void PrintHandler(playerIdentifier id, const vector<Cell>& possibleLocations) const;
-    void RunCurrentTurnOfTheGame(Game* game, playerIdentifier id, boardContent symbol);
+    void RunCurrentTurnOfTheGame(playerIdentifier id, boardContent symbol);
     Cell InputHandler() const;
 };
 

@@ -6,7 +6,7 @@
 #ifndef EX2_GAMELOGIC_H
 #define EX2_GAMELOGIC_H
 
-enum playerIdentifier {xplayer,yplayer};
+enum playerIdentifier {xplayer,oplayer};
 
 #include "Cell.h"
 #include "Board.h"

@@ -28,6 +28,7 @@ public:
     //print the board to the screen with its content and in the correct format
     void printBoard();
     boardContent** getBoardContent() const;
+    Board (const Board& other);
 
 private:
     //boardContent holds the content of the board
