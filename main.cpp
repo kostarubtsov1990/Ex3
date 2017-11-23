@@ -9,11 +9,11 @@
 
 int main() {
     //create the default logic and reversi game with the default logic
-
     GameMenu* menu = new ReversiGameMenu ();
     menu->Start();
     GameFlow* flow = menu->GetGameFlow();
     flow->Run();
+
 
     delete menu;
 
