@@ -8,9 +8,8 @@
 #include "../include/DefaultLogic.h"
 */
 
-#include "../gtest_src/gtest/gtest.h"
-#include "../include/DefaultLogic.h"
-
+#include "gtest/gtest.h"
+#include "../../include/DefaultLogic.h"
 
 
 TEST(CheckPossibleMovesMeothd, CheckMovesVecDataMember) {
@@ -59,7 +58,7 @@ TEST (IsLocationValid, CheckIfChosenLocationIsValid) {
 
 }
 
-/*
+
 TEST (CheckPossibleMovesMethod, CheckMovesVecDataMember) {
 
     DefaultLogic dl = DefaultLogic();
@@ -73,7 +72,7 @@ TEST (CheckPossibleMovesMethod, CheckMovesVecDataMember) {
 //    EXPECT_EQ((dl.possibleLocAroundSpecificCell(b,c)).size(),3);
 
 }
- */
+
 
 /*
 

@@ -1,14 +1,9 @@
+cmake_minimum_required(VERSION 3.8)
+project(test)
 
+add_subdirectory(lib/googletest-release-1.8.0)
+add_subdirectory(ReversiTests)
 
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-
-add_executable(runBasicCalendarTests
-        basic_check.cpp
-        calendar_check.cpp)
-
-target_link_libraries(runBasicCalendarTests gtest gtest_main)
-
-target_link_libraries(runBasicCalendarTests calendars)
 
 
 
