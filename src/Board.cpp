@@ -30,6 +30,27 @@ Board::Board() {
     this->content[4][4] = O;
 }
 
+Board::Board(const string &s) {
+    this->Board();
+    int k = 0;
+    for (int i = 0; i < NUM_OF_ROWS; ++i) {
+        int j = 0;
+        while (s[k] != '\n') {
+            if (s[k] == 'X') {
+                this->content[i][j] = X;
+            }
+            else if (s[k] == 'O') {
+                this->content[i][j] = O;
+            }
+            else {
+                this->content[i][j] = Empty;
+            }
+            k++;
+            j++;
+        }
+    }
+}
+
 void Board::printBoard() {
     //print first line of board
     for (int i = 0; i < NUM_OF_COLS; i++) {
