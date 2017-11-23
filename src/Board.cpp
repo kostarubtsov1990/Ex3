@@ -7,10 +7,11 @@
 
 Board::~Board() {
 //    cout << "Inside Board's D'tor" << endl;
+    /*
     for (int i = 0; i < NUM_OF_ROWS; i++) {
         delete this->content[i];
     }
-    delete content;
+    delete content;*/
 }
 
 //C'tor
@@ -28,26 +29,37 @@ Board::Board() {
     this->content[3][4] = X;
     this->content[4][3] = X;
     this->content[4][4] = O;
+
 }
 
 Board::Board(const string &s) {
-    this->Board();
+    this->content = new boardContent*[NUM_OF_ROWS];
+    for(int i = 0; i < NUM_OF_ROWS; ++i) {
+        this->content[i] = new boardContent[NUM_OF_COLS];
+    }
+
     int k = 0;
     for (int i = 0; i < NUM_OF_ROWS; ++i) {
         int j = 0;
         while (s[k] != '\n') {
+
             if (s[k] == 'X') {
+
                 this->content[i][j] = X;
             }
             else if (s[k] == 'O') {
+
                 this->content[i][j] = O;
             }
             else {
+
                 this->content[i][j] = Empty;
+
             }
             k++;
             j++;
         }
+        k++;
     }
 }
 
