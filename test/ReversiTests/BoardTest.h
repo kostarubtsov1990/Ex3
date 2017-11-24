@@ -17,7 +17,7 @@ public:
         noPossMovesForX = BoardFromFile("noPossibleMovesForX.txt");
     }
 
-    const Board BoardFromFile (const char *fileName) {
+     Board* BoardFromFile (const char *fileName) {
         string line;
         string boardStr;
         ifstream myfile(fileName);
@@ -32,14 +32,20 @@ public:
         myfile.close();
 
 
-        Board b = Board(boardStr);
+        Board *b = new Board(boardStr);
         return b;
     }
 
+    ~BoardTest() {
+        delete eightPossMovesForO;
+        delete noPossMovesForO;
+        delete noPossMovesForX;
+    }
+
 protected:
-    Board eightPossMovesForO;
-    Board noPossMovesForO;
-    Board noPossMovesForX;
+    Board* eightPossMovesForO;
+    Board* noPossMovesForO;
+    Board* noPossMovesForX;
 };
 
 #endif //EX3_BOARDTEST_H

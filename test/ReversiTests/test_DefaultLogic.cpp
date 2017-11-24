@@ -50,17 +50,17 @@ TEST_F(BoardTest, CheckMovesVecDataMember) {
 
 
     //Board b1 = createBoardFromFile("noPossibleMovesForX.txt");
-    dl.CheckPossibleMoves(&noPossMovesForX, xplayer);
+    dl.CheckPossibleMoves(noPossMovesForX, xplayer);
     EXPECT_EQ(dl.GetMoves().size(), 0);
 
 
     //Board b2 = createBoardFromFile("eightPossMovesForO.txt");
-    dl.CheckPossibleMoves(&eightPossMovesForO, yplayer);
+    dl.CheckPossibleMoves(eightPossMovesForO, yplayer);
     EXPECT_EQ(dl.GetMoves().size(), 8);
 
 
     //Board b3 = createBoardFromFile("noPossibleMovesForO.txt");
-    dl.CheckPossibleMoves(&noPossMovesForO, yplayer);
+    dl.CheckPossibleMoves(noPossMovesForO, yplayer);
     EXPECT_EQ(dl.GetMoves().size(), 0);
 
 
@@ -87,11 +87,10 @@ TEST_F (BoardTest, CheckIfGameIsOver) {
     EXPECT_TRUE(dl.IsGameOver(&b));
 
     //Board b1 = createBoardFromFile("noPossibleMovesForX.txt");
-    EXPECT_FALSE(dl.IsGameOver(&noPossMovesForX));
+    EXPECT_FALSE(dl.IsGameOver(noPossMovesForX));
 
    // Board b2 = createBoardFromFile("noPossibleMovesForO.txt");
-    EXPECT_FALSE(dl.IsGameOver(&noPossMovesForO));
-
+    EXPECT_FALSE(dl.IsGameOver(noPossMovesForO));
 
 
     //add test to case where board isnt full, and both players have no possible moves
