@@ -11,6 +11,7 @@
 #include "gtest/gtest.h"
 #include "../../include/DefaultLogic.h"
 #include <fstream>
+#include "BoardTest.h"
 
 
 
@@ -35,7 +36,7 @@ const Board createBoardFromFile(const char* fileName) {
 }
 
 
-TEST(CheckPossibleMovesMeothd, CheckMovesVecDataMember) {
+TEST_F(BoardTest, CheckMovesVecDataMember) {
 
     DefaultLogic dl = DefaultLogic();
 
@@ -48,36 +49,24 @@ TEST(CheckPossibleMovesMeothd, CheckMovesVecDataMember) {
     EXPECT_EQ(dl.GetMoves().size(),4);
 
 
-
-
-
-    Board b1 = createBoardFromFile("noPossibleMovesForX.txt");
-    dl.CheckPossibleMoves(&b1, xplayer);
+    //Board b1 = createBoardFromFile("noPossibleMovesForX.txt");
+    dl.CheckPossibleMoves(&noPossMovesForX, xplayer);
     EXPECT_EQ(dl.GetMoves().size(), 0);
 
 
-
-
-
-
-    Board b2 = createBoardFromFile("eightPossMovesForO.txt");
-    dl.CheckPossibleMoves(&b2, yplayer);
+    //Board b2 = createBoardFromFile("eightPossMovesForO.txt");
+    dl.CheckPossibleMoves(&eightPossMovesForO, yplayer);
     EXPECT_EQ(dl.GetMoves().size(), 8);
 
 
-
-
-    Board b3 = createBoardFromFile("noPossibleMovesForO.txt");
-    dl.CheckPossibleMoves(&b3, yplayer);
+    //Board b3 = createBoardFromFile("noPossibleMovesForO.txt");
+    dl.CheckPossibleMoves(&noPossMovesForO, yplayer);
     EXPECT_EQ(dl.GetMoves().size(), 0);
-
-
-
 
 
 }
 
-TEST (IsGameOverMethod, CheckIfGameIsOver) {
+TEST_F (BoardTest, CheckIfGameIsOver) {
 
     DefaultLogic dl = DefaultLogic();
     Board b = Board();
@@ -97,15 +86,11 @@ TEST (IsGameOverMethod, CheckIfGameIsOver) {
 
     EXPECT_TRUE(dl.IsGameOver(&b));
 
+    //Board b1 = createBoardFromFile("noPossibleMovesForX.txt");
+    EXPECT_FALSE(dl.IsGameOver(&noPossMovesForX));
 
-
-    Board b1 = createBoardFromFile("noPossibleMovesForX.txt");
-    EXPECT_FALSE(dl.IsGameOver(&b1));
-
-
-
-    Board b2 = createBoardFromFile("noPossibleMovesForO.txt");
-    EXPECT_FALSE(dl.IsGameOver(&b2));
+   // Board b2 = createBoardFromFile("noPossibleMovesForO.txt");
+    EXPECT_FALSE(dl.IsGameOver(&noPossMovesForO));
 
 
 
@@ -118,16 +103,6 @@ TEST (IsGameOverMethod, CheckIfGameIsOver) {
 
 
     //   EXPECT_TRUE();
-
-
-
-
-
-
-
-
-
-
 
 
 }
