@@ -20,8 +20,8 @@ private:
     void PrintHandler(playerIdentifier id, const vector<Cell>& possibleLocations) const;
     Cell InputHandler() const;
     int GetScore (Board* board);
-    playerIdentifier player = xplayer;
-    playerIdentifier computer = oplayer;
+    playerIdentifier player;
+    playerIdentifier computer;
 
 };
 

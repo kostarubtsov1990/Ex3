@@ -11,8 +11,8 @@
 
 
 SinglePlayerFlow::SinglePlayerFlow(Game *game) : GameFlow(game){
-    /*player = xplayer;
-    computer = oplayer;*/
+    player = xplayer;
+    computer = oplayer;
 }
 
 

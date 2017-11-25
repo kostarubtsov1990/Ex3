@@ -32,6 +32,19 @@ Board::Board() {
 
 }
 
+
+Board::Board(const Board &other) {
+    this->content = new boardContent*[NUM_OF_ROWS];
+    for(int i = 0; i < NUM_OF_ROWS; ++i)
+        this->content[i] = new boardContent[NUM_OF_COLS];
+    //Copy the data from the other object.
+    for (int i = 0; i < NUM_OF_ROWS; ++i) {
+        for (int j = 0; j < NUM_OF_COLS; ++j) {
+            this->content[i][j] = other.getBoardContent()[i][j];
+        }
+    }
+}
+
 Board::Board(const string &s) {
     this->content = new boardContent*[NUM_OF_ROWS];
     for(int i = 0; i < NUM_OF_ROWS; ++i) {
