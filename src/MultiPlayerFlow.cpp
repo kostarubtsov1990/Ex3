@@ -59,10 +59,10 @@ void MultiPlayerFlow::RunCurrentTurnOfTheGame(playerIdentifier id,
 void MultiPlayerFlow::PrintHandler(playerIdentifier id,
                                     const vector<Cell>& possibleLocations) const {
     //xplayer
-    if (!id) {
+    if (id == xplayer) {
         cout << "\nX: " << "It's your move." << endl;
     }
-    //yplayer
+    //oplayer
     else {
         cout << "\nO: " << "It's your move." << endl;
     }

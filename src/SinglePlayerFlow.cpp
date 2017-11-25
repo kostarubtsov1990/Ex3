@@ -114,7 +114,7 @@ void SinglePlayerFlow::RunAIPlayerGame(playerIdentifier id, boardContent symbol)
 }
 
 int SinglePlayerFlow::GetScore(Board *board) {
-    int Xcounter, Ocounter;
+    int Xcounter = 0, Ocounter = 0;
     for (int i = 0; i < NUM_OF_ROWS; ++i) {
         for (int j = 0; j < NUM_OF_COLS; ++j) {
             if (board->getBoardContent()[i][j] == X) {
@@ -130,10 +130,10 @@ int SinglePlayerFlow::GetScore(Board *board) {
 void SinglePlayerFlow::PrintHandler(playerIdentifier id,
                                    const vector<Cell>& possibleLocations) const {
     //xplayer
-    if (!id) {
+    if (id == player) {
         cout << "\nX: " << "It's your move." << endl;
     }
-        //oplayer
+    //oplayer
     else {
         cout << "\n" << "It's computer move. Press enter to accept." << endl;
         string enter ="";
