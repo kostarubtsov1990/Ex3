@@ -47,7 +47,7 @@ TEST_F(BoardTest, CheckPossibleMovesMethod) {
     dl.CheckPossibleMoves(&b,xplayer);
     EXPECT_EQ(dl.GetMoves().size(),4);
 
-    dl.CheckPossibleMoves(&b,yplayer);
+    dl.CheckPossibleMoves(&b,oplayer);
     EXPECT_EQ(dl.GetMoves().size(),4);
 
 
@@ -57,12 +57,12 @@ TEST_F(BoardTest, CheckPossibleMovesMethod) {
 
 
     //Board b2 = createBoardFromFile("eightPossMovesForO.txt");
-    dl.CheckPossibleMoves(eightPossMovesForOBoard, yplayer);
+    dl.CheckPossibleMoves(eightPossMovesForOBoard, oplayer);
     EXPECT_EQ(dl.GetMoves().size(), 8);
 
 
     //Board b3 = createBoardFromFile("noPossibleMovesForO.txt");
-    dl.CheckPossibleMoves(noPossMovesForOBoard, yplayer);
+    dl.CheckPossibleMoves(noPossMovesForOBoard, oplayer);
     EXPECT_EQ(dl.GetMoves().size(), 0);
 
 }
@@ -110,12 +110,12 @@ TEST_F (BoardTest, CheckIfChosenLocationIsValid) {
     //The case where location doesnt appear in moves vector.
     EXPECT_FALSE(dl.IsLocationValid(Cell(0,0)));
 
-    dl.CheckPossibleMoves(eightPossMovesForOBoard, yplayer);
+    dl.CheckPossibleMoves(eightPossMovesForOBoard, oplayer);
     //The case where location appear in moves vector.
     EXPECT_TRUE(dl.IsLocationValid(Cell(2,4)));
 
 
-    dl.CheckPossibleMoves(noPossMovesForOBoard, yplayer);
+    dl.CheckPossibleMoves(noPossMovesForOBoard, oplayer);
     //The case where the moves vector is empty.
     EXPECT_FALSE(dl.IsLocationValid(Cell(2,4)));
 
@@ -146,7 +146,7 @@ TEST_F(UpdateBoardTest, CheckUpdateBoardMethod) {
     dl.UpdateBoard(beforeRightUpBlockForXBoard, 4, 2, X);
     EXPECT_TRUE(*beforeRightUpBlockForXBoard == *afterRightUpBlockForXBoard);
 
-    dl.CheckPossibleMoves(beforeRightDownBlockForOBoard, yplayer);
+    dl.CheckPossibleMoves(beforeRightDownBlockForOBoard, oplayer);
     dl.UpdateBoard(beforeRightDownBlockForOBoard, 2, 2, O);
     EXPECT_TRUE(*beforeRightDownBlockForOBoard == *afterRightDownBlockForOBoard);
 
@@ -154,12 +154,12 @@ TEST_F(UpdateBoardTest, CheckUpdateBoardMethod) {
     dl.UpdateBoard(beforeLeftDownBlockForXBoard, 1, 5, X);
     EXPECT_TRUE(*beforeLeftDownBlockForXBoard == *afterLeftDownBlockForXBoard);
 
-    dl.CheckPossibleMoves(beforeUpLeftBlockForOBoard, yplayer);
+    dl.CheckPossibleMoves(beforeUpLeftBlockForOBoard, oplayer);
     dl.UpdateBoard(beforeUpLeftBlockForOBoard, 3, 6, O);
     EXPECT_TRUE(*beforeUpLeftBlockForOBoard == *afterUpLeftBlockForOBoard);
 
     //Check two reversal rows directions.
-    dl.CheckPossibleMoves(beforeTwoBlocksForOBoard, yplayer);
+    dl.CheckPossibleMoves(beforeTwoBlocksForOBoard, oplayer);
     dl.UpdateBoard(beforeTwoBlocksForOBoard, 5, 3, O);
     EXPECT_TRUE(*beforeTwoBlocksForOBoard == *afterTwoBlocksForOBoard);
 
