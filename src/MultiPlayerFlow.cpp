@@ -24,14 +24,14 @@ void MultiPlayerFlow::Run() {
 
     //each player plays its turn till game's over.
     while (!logic->IsGameOver(board)) {//?
-        RunCurrentTurnOfTheGame(game, xplayer, X);
-        RunCurrentTurnOfTheGame(game, yplayer, O);
+        RunCurrentTurnOfTheGame(xplayer, X);
+        RunCurrentTurnOfTheGame(oplayer, O);
     }
     //declare the winner of the game (or draw)
     logic->DeclareWinner(board);
 }
 
-void MultiPlayerFlow::RunCurrentTurnOfTheGame(Game* game, playerIdentifier id,
+void MultiPlayerFlow::RunCurrentTurnOfTheGame(playerIdentifier id,
                                                boardContent symbol) {
     GameLogic* logic = game->GetLogic();
     Board* board = game->GetBoard();

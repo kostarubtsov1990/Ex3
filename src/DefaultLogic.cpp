@@ -385,7 +385,7 @@ bool DefaultLogic::IsGameOver(Board* board) {
     else {
         xPlayerMoves = true;
     }
-    this->CheckPossibleMoves(board,yplayer);
+    this->CheckPossibleMoves(board,oplayer);
     if(this->moves.empty()) {
         oPlayerMoves = false;
     }

@@ -40,6 +40,7 @@ void ReversiGameMenu::Start() {
             switch (gameOption) {
                 case 1:
                     //To add SinglePlayerFlow in the future.
+                    userChoiceFlow = new SinglePlayerFlow(game);
                     break;
                 case 2:
                     userChoiceFlow = new MultiPlayerFlow(game);
