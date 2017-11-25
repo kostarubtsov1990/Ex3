@@ -109,6 +109,17 @@ char Board::calcStrValueOfBoardContent(boardContent symbol) const {
     }
 }
 
+bool Board::operator==(const Board &other) const {
+    for (int i = 0; i < NUM_OF_ROWS; ++i) {
+        for (int j = 0; j < NUM_OF_COLS; ++j) {
+            if (this->content[i][j] != other.content[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 boardContent** Board::getBoardContent() const {
     return this->content;
 }

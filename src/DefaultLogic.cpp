@@ -415,10 +415,10 @@ void DefaultLogic::DeclareWinner(Board* board) const {
         }
     }
     if (numOfXs > numOfOs) {
-        cout << "X Player Is The Winner!";
+        cout << "X Player Is The Winner!" << endl;
     }
     else if (numOfOs > numOfXs){
-        cout << "O Player Is The Winner" << endl;
+        cout << "O Player Is The Winner!" << endl;
     }
     else {
         cout << "Draw!" << endl;

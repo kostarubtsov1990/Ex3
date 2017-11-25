@@ -12,6 +12,8 @@
 #include "../../include/DefaultLogic.h"
 #include <fstream>
 #include "BoardTest.h"
+#include "UpdateBoardTest.h"
+#include "WinOrLoseTest.h"
 
 
 
@@ -36,7 +38,7 @@ const Board createBoardFromFile(const char* fileName) {
 }
 
 
-TEST_F(BoardTest, CheckMovesVecDataMember) {
+TEST_F(BoardTest, CheckPossibleMovesMethod) {
 
     DefaultLogic dl = DefaultLogic();
 
@@ -50,19 +52,18 @@ TEST_F(BoardTest, CheckMovesVecDataMember) {
 
 
     //Board b1 = createBoardFromFile("noPossibleMovesForX.txt");
-    dl.CheckPossibleMoves(noPossMovesForX, xplayer);
+    dl.CheckPossibleMoves(noPossMovesForXBoard, xplayer);
     EXPECT_EQ(dl.GetMoves().size(), 0);
 
 
     //Board b2 = createBoardFromFile("eightPossMovesForO.txt");
-    dl.CheckPossibleMoves(eightPossMovesForO, yplayer);
+    dl.CheckPossibleMoves(eightPossMovesForOBoard, yplayer);
     EXPECT_EQ(dl.GetMoves().size(), 8);
 
 
     //Board b3 = createBoardFromFile("noPossibleMovesForO.txt");
-    dl.CheckPossibleMoves(noPossMovesForO, yplayer);
+    dl.CheckPossibleMoves(noPossMovesForOBoard, yplayer);
     EXPECT_EQ(dl.GetMoves().size(), 0);
-
 
 }
 
@@ -87,54 +88,109 @@ TEST_F (BoardTest, CheckIfGameIsOver) {
     EXPECT_TRUE(dl.IsGameOver(&b));
 
     //Board b1 = createBoardFromFile("noPossibleMovesForX.txt");
-    EXPECT_FALSE(dl.IsGameOver(noPossMovesForX));
+    EXPECT_FALSE(dl.IsGameOver(noPossMovesForXBoard));
 
    // Board b2 = createBoardFromFile("noPossibleMovesForO.txt");
-    EXPECT_FALSE(dl.IsGameOver(noPossMovesForO));
-
+    EXPECT_FALSE(dl.IsGameOver(noPossMovesForOBoard));
 
     //add test to case where board isnt full, and both players have no possible moves
-
-
- //   dl.CheckPossibleMoves(&b1, xplayer);
-
- //   EXPECT_EQ(dl.GetMoves().size(), 0);
-
-
-    //   EXPECT_TRUE();
-
-
 }
 
 /*
  * check case where location doesnt appear in moves vector.
- * check case where format of location isnt of the form (row,col)
+ * check case where format of location isnt of the form (row,col) - this function not checking that.
  * check case where location is valid
  */
-TEST (IsLocationValid, CheckIfChosenLocationIsValid) {
-
-}
-
-
-TEST (CheckPossibleMovesMethod, CheckMovesVecDataMember) {
+TEST_F (BoardTest, CheckIfChosenLocationIsValid) {
 
     DefaultLogic dl = DefaultLogic();
-    Board *b = new Board();
+    Board b = Board();
+    dl.CheckPossibleMoves(&b,xplayer);
+
+    //The case where location doesnt appear in moves vector.
+    EXPECT_FALSE(dl.IsLocationValid(Cell(0,0)));
+
+    dl.CheckPossibleMoves(eightPossMovesForOBoard, yplayer);
+    //The case where location appear in moves vector.
+    EXPECT_TRUE(dl.IsLocationValid(Cell(2,4)));
 
 
-
-//    Cell c(0,0);
-//    b->getBoardContent()[0][0] = O;
-
-//    EXPECT_EQ((dl.possibleLocAroundSpecificCell(b,c)).size(),3);
+    dl.CheckPossibleMoves(noPossMovesForOBoard, yplayer);
+    //The case where the moves vector is empty.
+    EXPECT_FALSE(dl.IsLocationValid(Cell(2,4)));
 
 }
 
 
-/*
+TEST_F(UpdateBoardTest, CheckUpdateBoardMethod) {
+    DefaultLogic dl = DefaultLogic();
+    //Check every possible direction of reversal row.
 
-TEST(UpdateMovesVector, ) {
+    dl.CheckPossibleMoves(beforeRightBlockForXBoard, xplayer);
+    dl.UpdateBoard(beforeRightBlockForXBoard, 4, 1, X);
+    EXPECT_TRUE(*beforeRightBlockForXBoard == *afterRightBlockForXBoard);
+
+    dl.CheckPossibleMoves(beforeLeftBlockForXBoard, xplayer);
+    dl.UpdateBoard(beforeLeftBlockForXBoard, 2, 6, X);
+    EXPECT_TRUE(*beforeLeftBlockForXBoard == *afterLeftBlockForXBoard);
+
+    dl.CheckPossibleMoves(beforeUpBlockForXBoard, xplayer);
+    dl.UpdateBoard(beforeUpBlockForXBoard, 5, 2, X);
+    EXPECT_TRUE(*beforeUpBlockForXBoard == *afterUpBlockForXBoard);
+
+    dl.CheckPossibleMoves(beforeDownBlockForXBoard, xplayer);
+    dl.UpdateBoard(beforeDownBlockForXBoard, 2, 1, X);
+    EXPECT_TRUE(*beforeDownBlockForXBoard == *afterDownBlockForXBoard);
+
+    dl.CheckPossibleMoves(beforeRightUpBlockForXBoard, xplayer);
+    dl.UpdateBoard(beforeRightUpBlockForXBoard, 4, 2, X);
+    EXPECT_TRUE(*beforeRightUpBlockForXBoard == *afterRightUpBlockForXBoard);
+
+    dl.CheckPossibleMoves(beforeRightDownBlockForOBoard, yplayer);
+    dl.UpdateBoard(beforeRightDownBlockForOBoard, 2, 2, O);
+    EXPECT_TRUE(*beforeRightDownBlockForOBoard == *afterRightDownBlockForOBoard);
+
+    dl.CheckPossibleMoves(beforeLeftDownBlockForXBoard, xplayer);
+    dl.UpdateBoard(beforeLeftDownBlockForXBoard, 1, 5, X);
+    EXPECT_TRUE(*beforeLeftDownBlockForXBoard == *afterLeftDownBlockForXBoard);
+
+    dl.CheckPossibleMoves(beforeUpLeftBlockForOBoard, yplayer);
+    dl.UpdateBoard(beforeUpLeftBlockForOBoard, 3, 6, O);
+    EXPECT_TRUE(*beforeUpLeftBlockForOBoard == *afterUpLeftBlockForOBoard);
+
+    //Check two reversal rows directions.
+    dl.CheckPossibleMoves(beforeTwoBlocksForOBoard, yplayer);
+    dl.UpdateBoard(beforeTwoBlocksForOBoard, 5, 3, O);
+    EXPECT_TRUE(*beforeTwoBlocksForOBoard == *afterTwoBlocksForOBoard);
+
+    //Check three reversal rows directions.
+    dl.CheckPossibleMoves(beforeThreeBlocksForXBoard, xplayer);
+    dl.UpdateBoard(beforeThreeBlocksForXBoard, 2, 5, X);
+    EXPECT_TRUE(*beforeThreeBlocksForXBoard == *afterThreeBlocksForXBoard);
+}
+
+TEST_F(WinOrLoseTest, DeclareWinnerMethodTest) {
+    DefaultLogic dl = DefaultLogic();
+    //Check the case where X wins.
+    testing::internal::CaptureStdout();
+    dl.DeclareWinner(XwinsBoard);
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "X Player Is The Winner!\n");
+
+    //Check the case where O wins.
+    testing::internal::CaptureStdout();
+    dl.DeclareWinner(OwinsBoard);
+    output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "O Player Is The Winner!\n");
+
+    //Check the case where there is a draw.
+    testing::internal::CaptureStdout();
+    dl.DeclareWinner(DrawGameBoard);
+    output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "Draw!\n");
 
 }
-*/
+
+
+
 
