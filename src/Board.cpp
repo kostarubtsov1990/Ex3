@@ -8,10 +8,10 @@
 Board::~Board() {
 //    cout << "Inside Board's D'tor" << endl;
 
-    for (int i = 0; i < NUM_OF_ROWS; i++) {
+   /* for (int i = 0; i < NUM_OF_ROWS; i++) {
         delete this->content[i];
     }
-    delete content;
+    delete content;*/
 }
 
 //C'tor

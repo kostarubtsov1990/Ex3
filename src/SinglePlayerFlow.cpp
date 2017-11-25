@@ -10,7 +10,10 @@
 #include <cstdio>
 
 
-SinglePlayerFlow::SinglePlayerFlow(Game *game) : GameFlow(game){}
+SinglePlayerFlow::SinglePlayerFlow(Game *game) : GameFlow(game){
+    /*player = xplayer;
+    computer = oplayer;*/
+}
 
 
 void SinglePlayerFlow::Run() {
