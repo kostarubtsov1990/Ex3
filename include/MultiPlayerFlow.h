@@ -1,4 +1,6 @@
 /*
+ * Name: Kosta Rubtsov
+ * Id: 319206892
  * Name: Alon Barkan
  * Id: 200958296
  */
@@ -10,7 +12,7 @@
 #include "ReversiGame.h"
 
 /*
- * MultiPlayerFlow is responsible for the flow of the program.
+ * MultiPlayerFlow is responsible for the flow of the two players program.
  * its run method activates for each of the players the methods
  * RunCurrentTurnOfTheGame that is actually a full turn played
  * by the current player, with printings to the screen and updatings of the

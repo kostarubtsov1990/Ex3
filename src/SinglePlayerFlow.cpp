@@ -1,14 +1,13 @@
-//
-// Created by kostarubtsov1990 on 17/11/17.
-//
-
-
+/*
+ * Name: Kosta Rubtsov
+ * Id: 319206892
+ * Name: Alon Barkan
+ * Id: 200958296
+ */
 
 #include "../include/SinglePlayerFlow.h"
 #include <cstdlib>
 #include <map>
-#include <cstdio>
-
 
 SinglePlayerFlow::SinglePlayerFlow(Game *game) : GameFlow(game){
     player = xplayer;
@@ -98,6 +97,7 @@ void SinglePlayerFlow::RunAIPlayerGame(playerIdentifier id, boardContent symbol)
         //add the current cell with the max value.
     }
 
+    //Go through the map and find the minimum key.
     for(map<int ,Cell>::iterator iter = cellToScore.begin(); iter != cellToScore.end(); ++iter)
     {
         int score =  iter->first;
@@ -106,12 +106,14 @@ void SinglePlayerFlow::RunAIPlayerGame(playerIdentifier id, boardContent symbol)
         }
     }
 
+    //Take the step that is the best for the computer.
     logic->CheckPossibleMoves(board,id);
     Cell moveToTake = cellToScore[min];
     logic->UpdateBoard(board, moveToTake.getX(), moveToTake.getY(), O);
     cout << "current board:" << endl << endl;
     board->printBoard();
 }
+
 
 int SinglePlayerFlow::GetScore(Board *board) {
     int Xcounter, Ocounter;

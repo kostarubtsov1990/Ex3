@@ -39,8 +39,26 @@ UpdateBoardTest::UpdateBoardTest() {
 }
 
 UpdateBoardTest::~UpdateBoardTest() {
-    /*delete beforeTwoBlocksForOBoard;
-    delete afterTwoBlocksForOBoard;*/
+    delete beforeTwoBlocksForOBoard;
+    delete afterTwoBlocksForOBoard;
+    delete beforeThreeBlocksForXBoard;
+    delete afterThreeBlocksForXBoard;
+    delete beforeRightBlockForXBoard;
+    delete afterRightBlockForXBoard;
+    delete beforeLeftBlockForXBoard;
+    delete afterLeftBlockForXBoard;
+    delete beforeUpBlockForXBoard;
+    delete afterUpBlockForXBoard;
+    delete beforeDownBlockForXBoard;
+    delete afterDownBlockForXBoard;
+    delete beforeRightUpBlockForXBoard;
+    delete afterRightUpBlockForXBoard;
+    delete beforeRightDownBlockForOBoard;
+    delete afterRightDownBlockForOBoard;
+    delete beforeLeftDownBlockForXBoard;
+    delete afterLeftDownBlockForXBoard;
+    delete beforeUpLeftBlockForOBoard;
+    delete afterUpLeftBlockForOBoard;
 }
 
 Board* UpdateBoardTest::BoardFromFile(const char *fileName) {

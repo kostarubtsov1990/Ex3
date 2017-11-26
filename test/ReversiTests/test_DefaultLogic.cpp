@@ -16,7 +16,6 @@
 #include "WinOrLoseTest.h"
 
 
-
 const Board createBoardFromFile(const char* fileName) {
 
     string line;
@@ -92,15 +91,9 @@ TEST_F (BoardTest, CheckIfGameIsOver) {
 
    // Board b2 = createBoardFromFile("noPossibleMovesForO.txt");
     EXPECT_FALSE(dl.IsGameOver(noPossMovesForOBoard));
-
-    //add test to case where board isnt full, and both players have no possible moves
 }
 
-/*
- * check case where location doesnt appear in moves vector.
- * check case where format of location isnt of the form (row,col) - this function not checking that.
- * check case where location is valid
- */
+
 TEST_F (BoardTest, CheckIfChosenLocationIsValid) {
 
     DefaultLogic dl = DefaultLogic();

@@ -1,4 +1,6 @@
 /*
+ * Name: Kosta Rubtsov
+ * Id: 319206892
  * Name: Alon Barkan
  * Id: 200958296
  */
@@ -6,12 +8,11 @@
 #include "../include/Board.h"
 
 Board::~Board() {
-//    cout << "Inside Board's D'tor" << endl;
-
-   /* for (int i = 0; i < NUM_OF_ROWS; i++) {
+    //cout << "Inside Board's D'tor" << endl;
+   for (int i = 0; i < NUM_OF_ROWS; i++) {
         delete this->content[i];
     }
-    delete content;*/
+    delete content;
 }
 
 //C'tor
